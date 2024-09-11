@@ -1,24 +1,21 @@
-import {
-    createBrowserRouter,
-    RouterProvider,
-  } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import io from 'socket.io-client';
+import io from "socket.io-client";
+import Home from "./pages/Home";
 
-const socket = io('http://localhost:3000');
+const socket = io("http://localhost:3000");
 
 const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <div>Hello world!</div>,
-    },
-  ]);
+  {
+    path: "/",
+    element: <Home />,
+  },
+]);
 
 export default function App() {
-
   return (
     <div>
-        <RouterProvider router={router} />
+      <RouterProvider router={router} />
     </div>
-  )
+  );
 }
