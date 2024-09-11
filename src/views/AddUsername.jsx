@@ -1,8 +1,8 @@
 import { TbPhotoSearch } from "react-icons/tb";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export default function AddUsername() {
-  
   return (
     <div
       className="flex items-center justify-center min-h-screen bg-cover bg-center bg-no-repeat"
@@ -38,25 +38,28 @@ export default function AddUsername() {
             <h2 className="text-2xl font-semibold mb-6 text-blue-200">
               Selamat Datang di Tebak Gambar!
             </h2>
+
             <motion.input
               whileFocus={{ scale: 1.02 }}
               type="text"
               placeholder="Masukkan nama Anda..."
               className="w-full p-3 mb-6 bg-white/10 border-2 border-blue-300/30 rounded-lg focus:outline-none focus:border-blue-400 text-white placeholder-blue-200/70 transition duration-300"
             />
-            <motion.button
-              whileHover={{
-                scale: 1.05,
-                boxShadow: "0 0 15px rgba(59, 130, 246, 0.8)",
-              }}
-              whileTap={{ scale: 0.95 }}
-              className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold py-3 px-4 rounded-lg focus:outline-none transition duration-300"
-              style={{
-                textShadow: "0 2px 4px rgba(0,0,0,0.3)",
-              }}
-            >
-              Mulai
-            </motion.button>
+            <Link to={"/play"}>
+              <motion.button
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0 0 15px rgba(59, 130, 246, 0.8)",
+                }}
+                whileTap={{ scale: 0.95 }}
+                className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold py-3 px-4 rounded-lg focus:outline-none transition duration-300"
+                style={{
+                  textShadow: "0 2px 4px rgba(0,0,0,0.3)",
+                }}
+              >
+                Mulai
+              </motion.button>
+            </Link>
           </div>
         </motion.div>
       </motion.div>
