@@ -15,9 +15,10 @@ export default function AddUsername() {
   const handleOnClick = (e) => {
     e.preventDefault(e)
     socket.auth = { username: username };
+    console.log(socket.auth)
     socket.disconnect().connect();
     localStorage.setItem("username" , username)
-    nav("/")
+    nav("/play")
   }
   return (
     <div
