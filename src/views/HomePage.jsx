@@ -23,9 +23,10 @@ export default function HomePage() {
 
   return (
     <div
-      className="flex flex-col lg:flex-row h-screen bg-cover bg-center bg-no-repeat"
+      className="flex flex-col lg:flex-row min-h-screen bg-cover bg-center bg-no-repeat"
       style={{
         backgroundImage: `url('https://i.redd.it/rfftqdg5flv71.jpg')`,
+        backgroundAttachment: "fixed",
       }}
     >
       <motion.div
@@ -60,7 +61,7 @@ export default function HomePage() {
         <div className="flex-1 flex flex-col p-4 lg:p-6 overflow-hidden">
           <motion.div
             variants={itemVariants}
-            className="flex-1 bg-gradient-to-br pl-0 pr-0 pt-9 pb-9  from-blue-800/60 to-purple-800/60 backdrop-blur-lg text-white p-8 lg:p-5 justify-center relative shadow-2xl rounded-lg mb-4 lg:mb-6 border border-blue-300/30 overflow-hidden"
+            className="flex-1 bg-gradient-to-br pl-0 pr-0 pt-9 pb-9 from-blue-800/60 to-purple-800/60 backdrop-blur-lg text-white p-8 lg:p-5 justify-center relative shadow-2xl rounded-lg mb-4 lg:mb-6 border border-blue-300/30 overflow-hidden"
           >
             <div className="flex items-center justify-center h-full">
               <img
