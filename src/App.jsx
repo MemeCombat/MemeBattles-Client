@@ -3,8 +3,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import io from "socket.io-client";
 import HomePage from "./views/HomePage";
 import AddUsername from "./views/AddUsername";
+import { socket } from "./socket";
 
-const socket = io("http://localhost:3000");
 
 const router = createBrowserRouter([
   {

@@ -1,8 +1,24 @@
 import { TbPhotoSearch } from "react-icons/tb";
 import { motion } from "framer-motion";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { socket } from "../socket";
 
 export default function AddUsername() {
+  const nav = useNavigate()
+  const [username , setUsername ] = useState("")
   
+  const handleChangeUsername = (e) => {
+    setUsername(e.target.value)
+  }
+
+  const handleOnClick = (e) => {
+    e.preventDefault(e)
+    socket.auth = { username: username };
+    socket.disconnect().connect();
+    localStorage.setItem("username" , username)
+    nav("/")
+  }
   return (
     <div
       className="flex items-center justify-center min-h-screen bg-cover bg-center bg-no-repeat"
@@ -43,6 +59,7 @@ export default function AddUsername() {
               type="text"
               placeholder="Masukkan nama Anda..."
               className="w-full p-3 mb-6 bg-white/10 border-2 border-blue-300/30 rounded-lg focus:outline-none focus:border-blue-400 text-white placeholder-blue-200/70 transition duration-300"
+              onChange={handleChangeUsername}
             />
             <motion.button
               whileHover={{
@@ -54,6 +71,7 @@ export default function AddUsername() {
               style={{
                 textShadow: "0 2px 4px rgba(0,0,0,0.3)",
               }}
+              onClick={handleOnClick}
             >
               Mulai
             </motion.button>
