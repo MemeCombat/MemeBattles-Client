@@ -54,6 +54,7 @@ export default function AddUsername() {
             <h2 className="text-2xl font-semibold mb-6 text-blue-200">
               Selamat Datang di Tebak Gambar!
             </h2>
+
             <motion.input
               whileFocus={{ scale: 1.02 }}
               type="text"
