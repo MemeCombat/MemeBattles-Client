@@ -2,6 +2,7 @@ import { TbPhotoSearch } from "react-icons/tb";
 import { motion } from "framer-motion";
 
 export default function AddUsername() {
+  
   return (
     <div
       className="flex items-center justify-center min-h-screen bg-cover bg-center bg-no-repeat"
