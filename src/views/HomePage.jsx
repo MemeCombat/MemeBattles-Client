@@ -1,62 +1,107 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { TbVolume, TbLink } from "react-icons/tb";
 
 export default function HomePage() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.8,
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+  };
+
   return (
-    <div className="flex h-screen bg-gradient-to-r from-blue-100 to-blue-300">
-      {/* Sidebar */}
-      <div className="w-1/4 bg-blue-800 p-6 flex flex-col shadow-2xl rounded-r-lg">
-        <h2 className="text-3xl font-extrabold text-white mb-8 text-center">
-          Players
-        </h2>
-        <ul className="space-y-4">
-          <li className="flex items-center space-x-4 p-3 bg-blue-600 hover:bg-blue-500 transition rounded-lg shadow-lg">
-            <div className="bg-yellow-400 w-12 h-12 rounded-full" />
-            <div className="text-white text-xl font-medium">Pake nanya</div>
-          </li>
-          {/* Add more player items here */}
-        </ul>
-      </div>
-
-      {/* Main Content */}
-      <div className="flex-1 flex flex-col p-6">
-        {/* Drawing Area */}
-        <div className="flex-1 bg-white text-black p-10 relative shadow-2xl rounded-lg mb-6">
-          <div className="absolute top-4 right-4 flex space-x-3">
-            <button className="bg-gray-300 text-black p-3 rounded-full shadow hover:bg-gray-400 transition">
-              🔊
-            </button>
-            <button className="bg-gray-300 text-black p-3 rounded-full shadow hover:bg-gray-400 transition">
-              🔗
-            </button>
-          </div>
-          <div className="flex items-center justify-center h-full">
-            <img
-              src="https://example.com/gift.jpg"
-              alt="Gift Image"
-              className="max-h-full max-w-full object-contain"
-            />
-          </div>
-        </div>
-
-        {/* Answer Section */}
-        <div className="bg-white text-black border-t border-gray-300 shadow-2xl rounded-lg p-6">
-          <div className="w-full max-w-lg mx-auto">
-            <h3 className="font-extrabold text-3xl mb-4 text-blue-800 text-center">
-              Jawaban
-            </h3>
-            <div className="flex space-x-4">
-              <input
-                type="text"
-                placeholder="Jawab disini..."
-                className="flex-1 p-4 border border-gray-300 rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 shadow"
+    <div
+      className="flex h-screen bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage: `url('https://i.redd.it/rfftqdg5flv71.jpg')`,
+      }}
+    >
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="flex w-full"
+      >
+        <motion.div
+          variants={itemVariants}
+          className="w-1/4 bg-gradient-to-b from-blue-900/80 to-purple-900/80 p-6 flex flex-col shadow-2xl rounded-r-lg backdrop-blur-md overflow-hidden"
+        >
+          <h2 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mb-8 text-center">
+            Pemain
+          </h2>
+          <ul className="space-y-4">
+            <motion.li
+              whileHover={{
+                scale: 1.05,
+                backgroundColor: "rgba(255,255,255,0.2)",
+              }}
+              transition={{ duration: 0.3 }}
+              className="flex items-center space-x-4 p-3 bg-white/10 rounded-lg shadow-lg border border-blue-300/30"
+            >
+              <div className="bg-gradient-to-br from-blue-400 to-purple-500 w-12 h-12 rounded-full shadow-inner" />
+              <div className="text-blue-100 text-xl font-medium">
+                Pake nanya
+              </div>
+            </motion.li>
+          </ul>
+        </motion.div>
+        <div className="flex-1 flex flex-col p-6 overflow-hidden">
+          <motion.div
+            variants={itemVariants}
+            className="flex-1 bg-gradient-to-br from-blue-800/60 to-purple-800/60 backdrop-blur-lg text-white p-10 relative shadow-2xl rounded-lg mb-6 border border-blue-300/30 overflow-hidden"
+          >
+            <div className="flex items-center justify-center h-full">
+              <img
+                src="https://akcdn.detik.net.id/community/media/visual/2021/06/27/tebak-gambar-seru-akhir-pekan-lepas-tekanan-bikin-plong-pikiran_169.png?w=800&q=90"
+                alt="Image"
+                className="max-h-full max-w-full object-contain rounded-lg shadow-lg border-4 border-blue-300/50"
               />
-              <button className="bg-blue-600 text-white p-4 rounded-lg font-semibold shadow hover:bg-blue-700 transition">
-                Submit
-              </button>
             </div>
-          </div>
+          </motion.div>
+          <motion.div
+            variants={itemVariants}
+            className="bg-gradient-to-br from-blue-800/70 to-purple-800/70 backdrop-blur-lg text-white shadow-2xl rounded-lg p-6 border border-blue-300/30"
+          >
+            <div className="w-full max-w-lg mx-auto">
+              <h3 className="font-extrabold text-3xl mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-purple-300 text-center">
+                Jawaban
+              </h3>
+              <div className="flex space-x-4">
+                <motion.input
+                  whileFocus={{ scale: 1.02 }}
+                  type="text"
+                  placeholder="Tebak nama gambar disini..."
+                  className="flex-1 p-4 bg-white/20 border-2 border-blue-400/50 rounded-lg text-lg focus:outline-none focus:border-purple-400 text-white placeholder-blue-200/70 transition duration-300"
+                />
+                <motion.button
+                  whileHover={{
+                    scale: 1.05,
+                    boxShadow: "0 0 20px rgba(96, 165, 250, 0.5)",
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-gradient-to-r from-blue-500 to-purple-500 text-white p-4 rounded-lg font-semibold shadow-lg hover:from-blue-600 hover:to-purple-600 transition-all duration-300"
+                >
+                  Jawab
+                </motion.button>
+              </div>
+            </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }
