@@ -18,7 +18,7 @@ export default function AddUsername() {
     console.log(socket.auth)
     socket.disconnect().connect();
     localStorage.setItem("username" , username)
-    nav("/play")
+    nav("/menu")
   }
   return (
     <div
