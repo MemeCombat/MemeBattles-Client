@@ -59,6 +59,12 @@ const MainPage = () => {
       },
     },
   };
+
+  const handleLogOut = () => {
+    localStorage.removeItem("token");
+    navigate("/");
+  };
+
   return (
     <div
       className="flex w-full min-h-screen bg-cover bg-center bg-no-repeat"
@@ -104,6 +110,19 @@ const MainPage = () => {
               onClick={handleJoinRoom}
             >
               Join Room
+            </motion.button>
+
+            {/* Added Logout Button */}
+            <motion.button
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0 0 20px rgba(239, 68, 68, 0.5)",
+              }}
+              whileTap={{ scale: 0.95 }}
+              className="w-full md:w-64 bg-gradient-to-r from-red-400 to-red-600 hover:from-red-500 hover:to-red-700 text-white font-semibold py-4 px-6 rounded-lg shadow-lg transition-all duration-300"
+              onClick={handleLogOut}
+            >
+              Logout
             </motion.button>
           </div>
 
