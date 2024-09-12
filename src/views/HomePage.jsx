@@ -48,7 +48,7 @@ export default function HomePage() {
         icon: icon,
         confirmButtonText: "Back to Home",
       }).then(() => {
-        navigate("/home");
+        navigate("/menu");
         setGameStarted(false);
         localStorage.clear();
       });
@@ -56,10 +56,9 @@ export default function HomePage() {
     [navigate, setGameStarted]
   );
 
-  // Joining room and socket events
   useEffect(() => {
     if (!roomId) {
-      navigate("/home");
+      navigate("/");
       return;
     }
 
