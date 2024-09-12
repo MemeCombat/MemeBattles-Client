@@ -1,12 +1,9 @@
 import { motion } from "framer-motion";
-<<<<<<< HEAD
-=======
 import { useGameContext } from "../context/GameContext";
 import { useCallback, useEffect, useState } from "react";
 import { socket } from "../socket";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
->>>>>>> feat/integrationSocket
 
 export default function HomePage() {
   const [guess, setGuess] = useState({});
